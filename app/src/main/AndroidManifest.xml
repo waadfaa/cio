@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cio">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CIO">
+        <activity android:name=".AccountPageFacility"></activity>
+        <activity android:name=".LoginFacility" />
+        <activity android:name=".Attendence_Info" />
+        <activity android:name=".Worker_page" />
+        <activity android:name=".Delays_page" />
+        <activity android:name=".Absents_paga" />
+        <activity android:name=".Attendence_page" />
+        <activity android:name=".Account_page" />
+        <activity android:name=".Thecode" />
+        <activity android:name=".Facility_SignUp" />
+        <activity android:name=".Employee_SignUp" />
+        <activity
+            android:name=".ui.login.Login_Facility"
+            android:label="@string/title_activity_login__facility" />
+        <activity
+            android:name=".ui.login.Login_Employee"
+            android:label="@string/title_activity_login__employee" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
