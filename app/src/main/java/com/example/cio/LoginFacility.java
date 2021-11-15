@@ -46,8 +46,8 @@ public class LoginFacility extends AppCompatActivity {
                   if(email.equals("")|| password.equals("")) {
                       Toast.makeText(LoginFacility.this, "Plaese enter all the fields", Toast.LENGTH_SHORT).show();
                   } else{
-                      Boolean checkEmailPassword = DB.checkEmailPassword(Email , Password);
-                      if (checkEmailPassword==true){
+                      Boolean checkEmailPasswordE = DB.checkEmailPasswordE(Email , Password);
+                      if (checkEmailPasswordE==true){
                           Toast.makeText(LoginFacility.this,"SignIn is successfully",Toast.LENGTH_SHORT).show();
                           Intent intent = new Intent(getApplicationContext(),AccountPageFacility.class);
                           startActivity(intent);

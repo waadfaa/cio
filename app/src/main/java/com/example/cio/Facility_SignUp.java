@@ -41,7 +41,7 @@ public class Facility_SignUp extends AppCompatActivity {
                     if (FacilityName.equals(FacilityName)) {
                         Boolean checkFacility = DB.checkFacilityName(FacilityName);
                         if (checkFacility == false) {
-                            Boolean insert = DB.insertData(FacilityName, Email, Password, FacilityCode);
+                            Boolean insert = DB.insertDataF(FacilityName, Email, Password, FacilityCode);
                             if (insert == true) {
                                 Toast.makeText(Facility_SignUp.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), AccountPageFacility.class);
