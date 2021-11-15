@@ -2,15 +2,12 @@ package com.example.cio;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.cio.ui.login.Login_Facility;
 
 public class LoginFacility extends AppCompatActivity {
 
@@ -44,12 +41,12 @@ public class LoginFacility extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                   String Email = email.getText().toString();
-                  String Password = password.getText().getString();
+                  String Password = password.getText().toString();
 
-                  if(email.equals("")|| password.equals(""))
-                      Toast.makeText(LoginFacility.this ,"Plaese enter all the fields" , Toast.LENGTH_SHORT).show();
-                  else{
-                      Boolean checkEmailPassword = DB.checkEmailPassword(email, password);
+                  if(email.equals("")|| password.equals("")) {
+                      Toast.makeText(LoginFacility.this, "Plaese enter all the fields", Toast.LENGTH_SHORT).show();
+                  } else{
+                      Boolean checkEmailPassword = DB.checkEmailPassword(Email , Password);
                       if (checkEmailPassword==true){
                           Toast.makeText(LoginFacility.this,"SignIn is successfully",Toast.LENGTH_SHORT).show();
                           Intent intent = new Intent(getApplicationContext(),AccountPageFacility.class);
