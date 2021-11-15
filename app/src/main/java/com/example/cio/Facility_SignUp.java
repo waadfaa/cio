@@ -1,99 +1,69 @@
 package com.example.cio;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Facility_SignUp extends AppCompatActivity {
 
     Button SignUp;
-    DBHelper db;
+    EditText FacilityName , Email,Password ,FacilityCode;
+    DBHelper DB;
+
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facility__sign_up);
-        SignUp.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String FacilityName = FacilityName.getText().toString();
-                int Password = Integer.parseInt(Password.getText().toString());
-                Log.e("CIO", FacilityName + ", " + Password);
+        FacilityName =(EditText) findViewById(R.id.FacilityName);
+        Email = (EditText) findViewById(R.id.Email);
+        Password =(EditText) findViewById(R.id.Password);
+        FacilityCode =(EditText) findViewById(R.id.FacilityCode);
+        SignUp=(Button)findViewById(R.id.SignUp);
+        DB = new DBHelper(this );
 
-                boolean isInserted = db.insertFacility_SignUp(FacilityName, Password);
-                if (isInserted) {
-                    Toast.makeText(Facility_SignUp.this, "Added Successfully", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Facility_SignUp.this, "Added Failed", Toast.LENGTH_SHORT).show();
-                }
+        SignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view ) {
+                String FacilityName = FacilityName.getText().toString();
+                String Email = Email.getText().toString();
+                String Password = Password.getText().toString();
+                String FacilityCode = FacilityCode.getText().toString();
+
+                if(FacilityName.equals("")|| Email.equals("")|| Password.equals("")|| FacilityCode.equals(""))
+                    Toast.makeText(Facility_SignUp.this ,"Please enter all the fieds",Toast.LENGTH_SHORT).show();
+
+                else {
+                    if(FacilityName.equals(FacilityName)){
+                    Boolean checkFacility = DB.checkFacilityName(FacilityName);
+                    if (checkFacility == false) {
+                        Boolean insert = DB.insertData(FacilityName, Email, Password, FacilityCode);
+                        if (insert == true) {
+                            Toast.makeText(Facility_SignUp.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(),AccountPageFacility.class);
+                            startActivity(intent);
+                        }
+                    else{
+                                Toast.makeText(Facility_SignUp.this, "Registered Field", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    else {
+                        Toast.makeText(Facility_SignUp.this, "User already exists! please sgin in", Toast.LENGTH_SHORT).show();
+                    }
+                    }
+
+
+
+
             }
         });
-        private String FacilityName;
-        private String Email;
-        private int Password;
-        private int FacilityCode;
-        public static final String TABLE_NAME = "Facility_SignUp ";
 
-        public static final String COL_FacilityName = "FacilityName";
-        public static final String COL_Email = "Email";
-        public static final String COL_Password = "Password";
-        public static final String COL_FacilityCode = "FacilityCode";
-
-
-        public static final String CREATE_TABLE = "create table " + TABLE_NAME +
-                "(" + COL_FacilityName + " string primary key autoincrement," + COL_Email +
-                " text," + COL_Password + " integer," + COL_FacilityCode + "integer ,)";
-
-        public static final String DROP_TABLE = "drop table if exists " + TABLE_NAME;
-
-
-    public Facility_SignUp(String FacilityName, String Email, int Password, int FacilityCode){
-            this.FacilityName = FacilityName;
-            this.Email = Email;
-            this.Password = Password;
-            this.FacilityCode = FacilityCode;
-        }
-
-    public Facility_SignUp() {
-        }
-        public String getFacilityName () {
-            return FacilityName;
-        }
-
-        public String getEmail () {
-            return Email;
-        }
-
-        public int getPassword () {
-            return Password;
-        }
-        public int getFacilityCode () {
-            return FacilityCode;
-        }
-
-
-        public void setFacilityName (String FacilityName){
-            this.FacilityName = FacilityName;
-        }
-
-        public void setEmail (String Email){
-            this.Email = Email;
-        }
-
-        public void setPassword ( int Password){
-            this.Password = Password;
-        }
-
-        public void setFacilityCode ( int FacilityCode){
-            this.FacilityCode = FacilityCode;
-        }
     }
     }
 

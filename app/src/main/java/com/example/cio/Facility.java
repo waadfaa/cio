@@ -1,12 +1,13 @@
-import com.example.cio.DBHelper;
+package com.example.cio;
 
-public class Facility {
+public class Facility  {
 
     DBHelper db;
-    private String FacilityName;
-    private String Email;
-    private int Password;
-    private int FacilityCode;
+    String FacilityName;
+    String Email;
+    String Password;
+    String FacilityCode;
+
     public static final String TABLE_NAME = "Facility ";
 
     public static final String COL_FacilityName = "FacilityName";
@@ -22,7 +23,7 @@ public class Facility {
     public static final String DROP_TABLE = "drop table if exists " + TABLE_NAME;
 
 
-    public Facility(String FacilityName, String Email, int Password, int FacilityCode){
+    public Facility(String FacilityName, String Email, String Password, String FacilityCode){
         this.FacilityName = FacilityName;
         this.Email = Email;
         this.Password = Password;
@@ -39,10 +40,10 @@ public class Facility {
         return Email;
     }
 
-    public int getPassword () {
+    public String getPassword () {
         return Password;
     }
-    public int getFacilityCode () {
+    public String getFacilityCode () {
         return FacilityCode;
     }
 
@@ -55,11 +56,11 @@ public class Facility {
         this.Email = Email;
     }
 
-    public void setPassword ( int Password){
+    public void setPassword ( String Password){
         this.Password = Password;
     }
 
-    public void setFacilityCode ( int FacilityCode){
+    public void setFacilityCode ( String FacilityCode){
         this.FacilityCode = FacilityCode;
     }
 }

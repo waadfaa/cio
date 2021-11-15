@@ -1,33 +1,55 @@
 package com.example.cio;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginFacility extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    ViewPager view_pager;
+
+    EditText Email , password;
+    Button SignIn;
+    DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_facility);
 
-        tabLayout = findViewById(R.id.tab_layout);
-        view_pager = findViewById(R.id.view_pager);
+        Email = (EditText) findViewById(R.id.Email);
+        password = (EditText) findViewById(R.id.password);
+        SignIn = (Button) findViewById(R.id.login);
+        DB = new DBHelper(this);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Login"));
-        tabLayout.addTab(tabLayout.newTab().setText("SinUp"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        SignIn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                  Srting Email = Email.getText().toString();
+                  String password = password.getText().getString();
 
-        final LoginAdapter adapter = new LoginAdapter(getSupportFragmentManager(),this, tabLayout.getTabCount());
-        view_pager.setAdapter(adapter);
-        view_pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+                  if(Email.equals(" ")|| password.equals(""))
+                      Toast.makeText(LoginFacility.this ,"Plaese enter all the fields" , Toast.LENGTH_SHORT).show();
+                  else{
+                      Boolean checkFacilityNameEmailPasswordFacilityCode = DB.checkFacilityNameEmailPasswordFacilityCode(Email.password);
+                      if (checkFacilityNameEmailPasswordFacilityCode==true){
+                          Toast.makeText(LoginFacility.this,"SignIn is successfully",Toast.LENGTH_SHORT).show();
+                          Intent intent = new Intent(getApplicationContext(),AccountPageFacility.class);
+                          startActivity(intent);
+                      }else {
+                          Toast.makeText(LoginFacility.this,"Invalid Credentials",Toast.LENGTH_SHORT).show();
+                      }
+                  }
+            }
+        }
+
+
+        );
 
 
     }
