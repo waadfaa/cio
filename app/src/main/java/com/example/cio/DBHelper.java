@@ -8,12 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "FacilitySignUp.DB";
+    public static final String DBNAME = "Login.DB";
 
 
     public DBHelper(Context context) {
 
-        super(context, "FacilitySignUp.db", null, 1);
+        super(context, "Login.db", null, 1);
     }
 
 
@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists Facility");
     }
 
-    public boolean insertData(String FacilityName, String Email, int Password, String FacilityCode) {
+    public boolean insertData(String FacilityName, String Email, String Password, String FacilityCode) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues  contentValues = new ContentValues();
         contentValues.put("FacilityName", FacilityName);
@@ -51,6 +51,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean checkFacilityNameEmailPasswordFacilityCode(String FacilityName , String Email, String Password , String FacilityCode){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("select * from Facility where FacilityName = ? and Email = ? and Password = ? and FacilityCode = ?", new String[] {FacilityName , Email, Password ,FacilityCode });
+        if (cursor.getCount()>0)
+            return  true;
+        else
+            return false;
+    }
+
+    public boolean checkEmailPassword( String Email, String Password ){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("select * from Facility where  Email = ? and Password = ? ", new String[] {  Email, Password  });
         if (cursor.getCount()>0)
             return  true;
         else
