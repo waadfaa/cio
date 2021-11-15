@@ -38,6 +38,16 @@ public class Login_Facility extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__facility);
         NewAccount=findViewById(R.id.login1);
+
+        NewAccount.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent inttent =new Intent(Login_Facility.this, Facility_SignUp.class);
+                startActivity(inttent);
+            }
+
+        });
+
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -123,14 +133,7 @@ public class Login_Facility extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
-        NewAccount.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent inttent =new Intent(Login_Facility.this, Facility_SignUp.class);
-                startActivity(inttent);
-            }
 
-        });
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
