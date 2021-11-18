@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CIO">
-        <activity android:name=".AccountPageFacility"></activity>
+        <activity android:name=".FacilityLogin"></activity>
+        <activity android:name=".AccountPageFacility" />
         <activity android:name=".LoginFacility" />
         <activity android:name=".Attendence_Info" />
         <activity android:name=".Worker_page" />
@@ -20,9 +21,6 @@
         <activity android:name=".Thecode" />
         <activity android:name=".Facility_SignUp" />
         <activity android:name=".Employee_SignUp" />
-        <activity
-            android:name=".ui.login.Login_Facility"
-            android:label="@string/title_activity_login__facility" />
         <activity
             android:name=".ui.login.Login_Employee"
             android:label="@string/title_activity_login__employee" />

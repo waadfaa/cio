@@ -1,10 +1,11 @@
-package com.example.cio;
+package com.example.cio.data;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -77,7 +78,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("Email", Email);
         contentValues.put("Password", Password);
         contentValues.put("FacilityCode", FacilityCode);
-        long reslut=MyDB.insert("Facility", null, contentValues);
+        long reslut=MyDB.insert("com.example.cio.Facility", null, contentValues);
         if (reslut==-1)return false;
         else
             return true;
