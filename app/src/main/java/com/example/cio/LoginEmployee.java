@@ -23,9 +23,9 @@ public class LoginEmployee extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_facility);
+        setContentView(R.layout.activity_login__employee);
 
-        email = (EditText) findViewById(R.id.Email);
+        email = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         SignIn = (Button) findViewById(R.id.login);
         NewAccount= (Button) findViewById(R.id.login1);

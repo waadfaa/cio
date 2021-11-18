@@ -1,11 +1,11 @@
 package com.example.cio;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cio.ui.login.Login_Employee;
 
@@ -31,7 +31,7 @@ Button Facility;
         Facility.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent inttent =new Intent(MainActivity.this, Login_Facility.class);
+                Intent inttent =new Intent(MainActivity.this, FacilityLogin.class);
                 startActivity(inttent);
             }
 

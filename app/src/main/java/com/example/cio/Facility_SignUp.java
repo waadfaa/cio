@@ -34,6 +34,12 @@ public class Facility_SignUp extends AppCompatActivity {
 
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("Facility");
+                String FacilityName = FacilityN.getEditableText().getText().toString();
+                int Password = password.getEditableText().getText().toString();
+                String Email = email.getEditableText().getText().toString();
+                int Facilitycode = FacilityC.getEditableText().getText().toString();
+
+                FacilityHelper helperClassF = new FacilityHelper(FacilityName,Email,Password,Facilitycode);
 
                 reference.setValue("test");
 
