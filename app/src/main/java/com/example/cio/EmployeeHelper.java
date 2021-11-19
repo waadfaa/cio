@@ -3,19 +3,20 @@ package com.example.cio;
 public class EmployeeHelper {
 
     String FirstName, LastName, Email;
-    int Password, FacilityCodeE;
+    int Password, FacilityCodeE , CardNumber;
     String Male, Female;
 
     public EmployeeHelper() {
 
     }
 
-    public EmployeeHelper(String firstName, String lastName, String email, int password, int facilityCodeE, String male, String female) {
+    public EmployeeHelper(String firstName, String lastName, String email, int password, int facilityCodeE , int cardNumber, String male, String female ) {
         FirstName = firstName;
         LastName = lastName;
         Email = email;
         Password = password;
         FacilityCodeE = facilityCodeE;
+        CardNumber = cardNumber;
         Male = male;
         Female = female;
     }
@@ -58,6 +59,14 @@ public class EmployeeHelper {
 
     public void setFacilityCodeE(int facilityCodeE) {
         FacilityCodeE = facilityCodeE;
+    }
+
+    public int getCardNumber() {
+        return CardNumber;
+    }
+
+    public void setCardNumber(int cardNumber) {
+        CardNumber = cardNumber;
     }
 
     public String getMale() {

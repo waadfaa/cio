@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Employee_SignUp extends AppCompatActivity {
     Button SignUp;
-    EditText FirstN, LastN, email, password, FacilityCE;
+    EditText FirstN, LastN, email, password, FacilityCE , CardNumber;
     RadioButton male , female;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -28,6 +28,7 @@ public class Employee_SignUp extends AppCompatActivity {
         email = (EditText) findViewById(R.id.Email);
         password = (EditText) findViewById(R.id.Password);
         FacilityCE = (EditText) findViewById(R.id.FacilitycodeE);
+        CardNumber = (EditText) findViewById(R.id.CardNumber);
         male = (RadioButton) findViewById(R.id.Male);
         female = (RadioButton) findViewById(R.id.Female);
 
@@ -38,16 +39,18 @@ public class Employee_SignUp extends AppCompatActivity {
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("Employee");
 
+
                 String FirstName = FirstN.getText().toString();
                 String LastName  = LastN.getText().toString();
                 String Email = email.getText().toString();
                 int Password = Integer.parseInt(password.getText().toString());
                 int FacilityCodeE = Integer.parseInt(FacilityCE.getText().toString());
+                int CardNumberE = Integer.parseInt(CardNumber.getText().toString());
                 String Male = male.getText().toString();
                 String Female = female.getText().toString();
 
-                EmployeeHelper helperClassE = new EmployeeHelper(FirstName,LastName,Email,Password,FacilityCodeE,Male,Female);
-                reference.setValue(helperClassE);
+                EmployeeHelper helperClassE = new EmployeeHelper(FirstName,LastName,Email,Password,FacilityCodeE, CardNumberE,Male,Female);
+                reference.push().setValue(helperClassE);
                 Intent inttent =new Intent(Employee_SignUp.this, Account_page.class);
                 startActivity(inttent);
 

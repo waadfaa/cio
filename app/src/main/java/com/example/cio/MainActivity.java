@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cio.ui.login.Login_Employee;
+
 
 public class MainActivity extends AppCompatActivity {
 Button Employee;
@@ -22,7 +22,7 @@ Button Facility;
         Employee.setOnClickListener(new View.OnClickListener(){
              @Override
             public void onClick(View v) {
-                Intent inttent =new Intent(MainActivity.this, Login_Employee.class);
+                Intent inttent =new Intent(MainActivity.this, EmployeeLogin.class);
                 startActivity(inttent);
             }
 
