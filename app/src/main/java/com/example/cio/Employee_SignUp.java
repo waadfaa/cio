@@ -1,5 +1,6 @@
 package com.example.cio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,18 +38,18 @@ public class Employee_SignUp extends AppCompatActivity {
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("Employee");
 
-                String FirstName = FirstN.getEditableText().getText().toString();
-                String LastName  = LastN.getEditableText().getText().toString();
-                String Email = email.getEditableText().getText().toString();
-                int Password = password.getEditableText().getText().toString();
-                int FacilityCodeE = FacilityCE.getEditableText().getText().toString();
-                RadioButton Male = male.getEditableText().getText().toString();
-                RadioButton Female = female.getEditableText().getText().toString();
+                String FirstName = FirstN.getText().toString();
+                String LastName  = LastN.getText().toString();
+                String Email = email.getText().toString();
+                int Password = Integer.parseInt(password.getText().toString());
+                int FacilityCodeE = Integer.parseInt(FacilityCE.getText().toString());
+                String Male = male.getText().toString();
+                String Female = female.getText().toString();
 
-                EmployeeHelper helperClassE = new EmployeeHelper(FirstName , LastName , Email ,Password ,FacilityCodeE ,Male ,Female);
-
-
-                reference.setValue("test");
+                EmployeeHelper helperClassE = new EmployeeHelper(FirstName,LastName,Email,Password,FacilityCodeE,Male,Female);
+                reference.setValue(helperClassE);
+                Intent inttent =new Intent(Employee_SignUp.this, Account_page.class);
+                startActivity(inttent);
 
 
             }

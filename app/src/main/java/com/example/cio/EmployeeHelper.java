@@ -1,18 +1,16 @@
 package com.example.cio;
 
-import android.widget.RadioButton;
-
 public class EmployeeHelper {
 
     String FirstName, LastName, Email;
     int Password, FacilityCodeE;
-    RadioButton Male, Female;
+    String Male, Female;
 
     public EmployeeHelper() {
 
     }
 
-    public EmployeeHelper(String firstName, String lastName, String email, int password, int facilityCodeE, RadioButton male, RadioButton female) {
+    public EmployeeHelper(String firstName, String lastName, String email, int password, int facilityCodeE, String male, String female) {
         FirstName = firstName;
         LastName = lastName;
         Email = email;
@@ -62,19 +60,19 @@ public class EmployeeHelper {
         FacilityCodeE = facilityCodeE;
     }
 
-    public RadioButton getMale() {
+    public String getMale() {
         return Male;
     }
 
-    public void setMale(RadioButton male) {
+    public void setMale(String male) {
         Male = male;
     }
 
-    public RadioButton getFemale() {
+    public String getFemale() {
         return Female;
     }
 
-    public void setFemale(RadioButton female) {
+    public void setFemale(String female) {
         Female = female;
     }
 }

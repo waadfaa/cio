@@ -1,5 +1,6 @@
 package com.example.cio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ public class Facility_SignUp extends AppCompatActivity {
 
     Button SignUp;
     EditText FacilityN, email, password, FacilityC;
+
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -31,22 +33,20 @@ public class Facility_SignUp extends AppCompatActivity {
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("Facility");
-                String FacilityName = FacilityN.getEditableText().getText().toString();
-                int Password = password.getEditableText().getText().toString();
-                String Email = email.getEditableText().getText().toString();
-                int Facilitycode = FacilityC.getEditableText().getText().toString();
 
-                FacilityHelper helperClassF = new FacilityHelper(FacilityName,Email,Password,Facilitycode);
+                String FacilityName = FacilityN.getText().toString();
+                int Password = Integer.parseInt(password .getText().toString());
+                String Email = email.getText().toString();
+                int FacilityCode = Integer.parseInt(FacilityC.getText().toString());
 
-                reference.setValue("test");
-
-
+                FacilityHelper helperClassF = new FacilityHelper(FacilityName,Email,Password,FacilityCode);
+                reference.setValue(helperClassF);
+                Intent inttent =new Intent(Facility_SignUp.this, AccountPageFacility.class);
+                startActivity(inttent);
             }
-        });
-    }
+        }); }
 }
 
 
