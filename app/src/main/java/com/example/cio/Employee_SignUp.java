@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ public class Employee_SignUp extends AppCompatActivity {
     Button SignUp;
     EditText FirstN, LastN, email, password, FacilityCE , CardNumber;
     RadioButton male , female;
+    String selectGender;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     @Override
@@ -48,6 +50,14 @@ public class Employee_SignUp extends AppCompatActivity {
                 int CardNumberE = Integer.parseInt(CardNumber.getText().toString());
                 String Male = male.getText().toString();
                 String Female = female.getText().toString();
+                if(male.isChecked()){
+                    selectGender = male.getText().toString();
+                }else if (female.isChecked()){
+                    selectGender = female.getText().toString();
+                }
+                Toast.makeText(getApplicationContext(),selectGender,Toast.LENGTH_LONG).show();
+
+
 
                 EmployeeHelper helperClassE = new EmployeeHelper(FirstName,LastName,Email,Password,FacilityCodeE, CardNumberE,Male,Female);
                 reference.push().setValue(helperClassE);
