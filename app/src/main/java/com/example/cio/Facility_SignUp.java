@@ -42,7 +42,7 @@ public class Facility_SignUp extends AppCompatActivity {
                 int FacilityCode = Integer.parseInt(FacilityC.getText().toString());
 
                 FacilityHelper helperClassF = new FacilityHelper(FacilityName,Email,Password,FacilityCode);
-                reference.setValue(helperClassF);
+                reference.push().setValue(helperClassF);
                 Intent inttent =new Intent(Facility_SignUp.this, AccountPageFacility.class);
                 startActivity(inttent);
             }

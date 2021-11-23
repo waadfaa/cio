@@ -1,11 +1,11 @@
 package com.example.cio;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AccountPageFacility extends AppCompatActivity {
 Button SearchForEmployee;
@@ -20,7 +20,7 @@ Button SignOut;
         SearchForEmployee.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent inttent =new Intent(AccountPageFacility.this, Attendence_Info.class);
+                Intent inttent =new Intent(AccountPageFacility.this, Worker_page.class);
                 startActivity(inttent);
             }
 
