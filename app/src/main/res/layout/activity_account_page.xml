@@ -6,22 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".Account_page">
 
+
     <Button
         android:id="@+id/button1"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginBottom="644dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="548dp"
         android:background="@drawable/round_btn"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Sign Out"
-        app:backgroundTint="#23BAAC"
         android:textColor="#FFFF"
+        app:backgroundTint="#23BAAC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <Button
         android:id="@+id/button3"
@@ -30,12 +30,12 @@
         android:layout_height="92dp"
         android:layout_marginStart="120dp"
         android:layout_marginLeft="120dp"
-        android:layout_marginBottom="456dp"
+        android:layout_marginBottom="428dp"
         android:background="@drawable/round_btn"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Attendances"
-        app:backgroundTint="#23BAAC"
         android:textColor="#FFFF"
+        app:backgroundTint="#23BAAC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -46,12 +46,12 @@
         android:layout_height="80dp"
         android:layout_marginStart="120dp"
         android:layout_marginLeft="120dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginBottom="300dp"
         android:background="@drawable/round_btn"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Absents"
-        app:backgroundTint="#23BAAC"
         android:textColor="#FFFF"
+        app:backgroundTint="#23BAAC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -62,15 +62,14 @@
         android:layout_height="80dp"
         android:layout_marginStart="116dp"
         android:layout_marginLeft="116dp"
-        android:layout_marginBottom="196dp"
+        android:layout_marginBottom="184dp"
         android:background="@drawable/round_btn"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Delays"
-        app:backgroundTint="#23BAAC"
         android:textColor="#FFFF"
+        app:backgroundTint="#23BAAC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
